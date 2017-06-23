@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src='sweetalert/dist/sweetalert.min.js'></script>
+    <link rel='stylesheet' type='text/css' href='sweetalert/dist/sweetalert.css'>
+  </head>
+  <body>
+
+  </body>
+</html>
 <?php
     include("conexao.php");
 
@@ -14,24 +24,28 @@
 
       if(isset($_FILES['inputFoto'])){
         date_default_timezone_set("Brazil/East"); //Definindo timezone padrão
-
         $ext = strtolower(substr($_FILES['inputFoto']['name'],-4)); //Pegando extensão do arquivo
         $new_name = $username . $ext; //Definindo um novo nome para o arquivo
         $dir = 'fotosperfil/'; //Diretório para uploads
-
         move_uploaded_file($_FILES['inputFoto']['tmp_name'], $dir.$new_name); //Fazer upload do arquivo
       }
+
       $foto = "fotosperfil/".$username."".$ext;
       $sql = "INSERT INTO usuario (nome,foto, nascimento,username,email,senha,cidadeAtual,sexo,telefone)
       VALUES ('$nome','$foto','$nascimento','$username','$email','$senha','$cidadeAtual','$sexo','$telefone')";
 
-      if(mysqli_query($conexao,$sql)){
-          echo "<script>alert('Usuário cadastrado com sucesso')</script>";
-          echo "<script>location.href='index.php';</script>";
+      if(mysqli_query($conexao, $sql)){
+        echo "<script>
+        sweetAlert('Sucesso no cadastro', 'Usuário foi cadastrado com sucesso', 'success');
+        setTimeout(function() { location.href='index.php' }, 3000);
+            </script>";
       }else{
-          echo "<script>alert('Usuário já cadastrado')</script>";
-          echo "<script>location.href='cadastro.php'</script>";
+        echo "<script>
+        sweetAlert('Falha no cadastro', 'Usuário já existe', 'error');
+        setTimeout(function() { window.history.back(); }, 3000);
+            </script>";
       }
+
       mysqli_close($conexao);
     }else{
       echo "<h1>Falha na conexão com o banco</h1>";

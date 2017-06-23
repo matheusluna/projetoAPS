@@ -32,49 +32,48 @@
           <form class="col s12" method="post" action="enviarCadastro.php" enctype="multipart/form-data">
             <div class="row">
               <div class="input-field col s6">
-                <input name="inputNome" type="text" class="validate">
+                <input name="inputNome" type="text" class="validate" required>
                 <label for="name">Nome</label>
               </div>
               <div class="input-field col s6">
-                 <input name="inputNascimento" type="date" class="datepicker">
+                 <input name="inputNascimento" type="date" class="datepicker" required>
                  <label for="birthdate">Data de nascimento</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input name="inputUsername" type="text" class="validate">
+                <input name="inputUsername" type="text" class="validate" required>
                 <label for="email" data-error="wrong" data-success="right">Nome de usuário</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s6">
-                <input name="inputEmail" type="email" class="validate">
+                <input name="inputEmail" type="email" class="validate" required>
                 <label for="email">Email</label>
               </div>
               <div class="input-field col s6">
-                <input name="inputSenha" type="password" class="validate">
+                <input name="inputSenha" type="password" class="validate" required>
                 <label for="password">Password</label>
               </div>
             </div>
             <div class="row">
               <div class="row">
                 <div class="input-field col s12">
-                  <input name="inputCidadeAtual" type="text" class="validate">
+                  <input name="inputCidadeAtual" type="text" class="validate" required>
                   <label for="email">Cidade atual</label>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s6">
-                <select name="selectSexo">
-                  <option value="" disabled selected>Escolha um sexo</option>
+                <select name="selectSexo" required>
                   <option value="Masculino">Masculino</option>
                   <option value="Feminino">Feminino</option>
                 </select>
                 <label>Sexo</label>
               </div>
               <div class="input-field col s6">
-                <input name="inputTelefone" type="tel" class="validate">
+                <input name="inputTelefone" type="tel" class="validate" required>
                 <label for="icon_telephone">Telephone</label>
               </div>
             </div>
@@ -83,7 +82,7 @@
               <div class="file-field input-field">
                 <div class="btn">
                   <span>Foto</span>
-                  <input name="inputFoto" type="file">
+                  <input name="inputFoto" type="file" required>
                 </div>
 
                 <div class="file-path-wrapper">
