@@ -1,7 +1,7 @@
 <?php
   function open_database() {
       try {
-          $conn = mysqli_connect('127.0.0.1', 'root','', 'republics');
+          $conn = mysqli_connect('localhost', 'root','', 'republics');
           return $conn;
       } catch (Exception $e) {
           echo $e->getMessage();

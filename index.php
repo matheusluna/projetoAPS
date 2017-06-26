@@ -21,16 +21,16 @@
           <img src="materialize/img/brasao.png" alt="" width="150px">
         </div>
         <div class="row">
-          <form class="col s12">
+          <form method="post" action="valida_login" class="col s12">
             <div class="row">
               <div class="input-field col s12">
-                <input id="email" type="email" class="validate">
+                <input name="email" id="email" type="email" class="validate">
                 <label for="email">Email</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="password" type="password" class="validate">
+                <input name="senha" id="password" type="password" class="validate">
                 <label for="password">Password</label>
               </div>
             </div>
@@ -54,12 +54,11 @@
                   </div>
               </div>
             </div>
+            	<div class="row center-align">
+          			<input type="submit" value="Login" class="waves-effect waves-light btn grey darken-3">
+          			<a class="waves-effect waves-light btn grey darken-3" href="cadastro.html">Cadastrar</a>
+        		</div>
           </form>
-        </div>
-
-        <div class="row center-align">
-          <a class="waves-effect waves-light btn grey darken-3">Login</a>
-          <a class="waves-effect waves-light btn grey darken-3" href="cadastro.html">Cadastrar</a>
         </div>
 
       </div>
