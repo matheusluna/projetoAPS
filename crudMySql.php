@@ -9,6 +9,7 @@
 		
 		//Adiciona virgula nas chaves
         $fields = implode(', ', array_keys($data));
+		
 		//Adiciona virgula nos valores
         $values = "'".implode("', '", $data)."'";
         
@@ -36,10 +37,10 @@
         if ($result->num_rows > 0) {
       	// output data of each row
       		while($row = $result->fetch_assoc()) {
-          		$data[] = $row;
+          		$data = $row;
       		}
   		} else {
-      		echo "0 results";
+      		return FALSE;
   		}
 		mysqli_close($conexao);
 		return $data;

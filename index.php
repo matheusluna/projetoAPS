@@ -1,7 +1,3 @@
-<?php
-
-
-?>
 <!DOCTYPE html>
   <html>
     <head>
@@ -21,7 +17,7 @@
           <img src="materialize/img/brasao.png" alt="" width="150px">
         </div>
         <div class="row">
-          <form method="post" action="valida_login" class="col s12">
+          <form method="post" action="valida_login.php" class="col s12">
             <div class="row">
               <div class="input-field col s12">
                 <input name="email" id="email" type="email" class="validate">
