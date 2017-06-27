@@ -26,9 +26,12 @@
 		        	setTimeout(function() { window.history.back(); }, 3000); </script>";
 					
 					session_unset();
+					
 				}else{
 					$_SESSION['nome'] = $nome = $result['nome'];
-					Header("location:bloqueiaAcessoDireto.php");
+					echo "<script>
+	        		sweetAlert('Login efetuado', 'Bem vindo, $nome', 'success');
+	        		setTimeout(function() { location.href='principal.php' }, 3000); </script>";
 				}
 			}else{
 				echo "<script>
@@ -36,6 +39,7 @@
 		        setTimeout(function() { window.history.back(); }, 3000); </script>";
 		        
 		        session_unset();
+				
 			}
 		}else{
 			if(empty($email) and empty($senha)){
@@ -44,22 +48,25 @@
 		        setTimeout(function() { window.history.back(); }, 3000); </script>";
 				
 				session_unset();
+				
 			}else if(empty($email)){
 				echo "<script>
 		        sweetAlert('Email não informado', 'Preencha o campo email', 'error');
 		        setTimeout(function() { window.history.back(); }, 3000); </script>";
 		        
 		        session_unset();
+		        
 			}else if(empty($senha)){
 				echo "<script>
 		        sweetAlert('Senha não informada', 'Preencha o campo senha', 'error');
 		        setTimeout(function() { window.history.back(); }, 3000); </script>";
 		        
 		        session_unset();
+		        
 			}
 		}
 		
-?>
+	?>
   </body>
 </html>
 
