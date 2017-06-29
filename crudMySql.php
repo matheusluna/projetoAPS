@@ -4,6 +4,7 @@
   	include("conexao.php");
   	
 	//Grava Reqistros
+    //Mesma coisa que um insert
     function create_database($table, array $data){
         $conexao = open_database();
 		
