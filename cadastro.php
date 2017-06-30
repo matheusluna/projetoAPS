@@ -39,7 +39,7 @@
             <div class="row">
               <div class="input-field col s12">
                 <input name="inputUsername" type="text" class="validate" required>
-                <label for="email" data-error="wrong" data-success="right">Nome de usuário</label>
+                <label for="inputUsername" data-error="wrong" data-success="right">Nome de usuário</label>
               </div>
             </div>
             <div class="row">

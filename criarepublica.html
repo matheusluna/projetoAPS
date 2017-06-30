@@ -1,9 +1,3 @@
-<?php 
-
-  include 'conexao.php';
-
-?>
-
 <!DOCTYPE html>
   <html>
     <head>
@@ -46,39 +40,38 @@
       <div class="container">
         <br><br>
         <div class="row">
-          <form class="col s12">
+          <form class="col s12" method="post" action="criaRepublica.php">
             <div class="row">
               <div class="input-field col s6">
-                <input id="first_name" type="text" class="validate">
-                <label for="first_name">Nome</label>
+                <input id="nome" type="text" class="validate">
+                <label for="nome">Nome</label>
               </div>
               <div class="input-field col s6">
-                <input id="last_name" type="text" class="validate">
-                <label for="last_name">Endereço</label>
+                <input id="endereco" type="text" class="validate">
+                <label for="endereco">Endereço</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="email" type="email" class="validate">
-                <label for="email">Cidade</label>
+                <input id="cidade" type="text" class="validate">
+                <label for="cidade">Cidade</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s6">
-                <input id="email" type="email" class="validate">
-                <label for="email">Vagas</label>
+                <input id="vagas" type="text" class="validate">
+                <label for="vagas">Vagas</label>
               </div>
               <div class="input-field col s6">
-                <input id="email" type="email" class="validate">
-                <label for="email">Contato</label>
+                <input id="contato" type="text" class="validate">
+                <label for="contato">Contato</label>
               </div>
             </div>
+            <div class="fixed-action-btn">
+              <input style="font-size:10pt" class="btn-floating btn-large red"
+              type="submit" value="Enviar" href="gerenciarrepublica.html">
+            </div>
           </form>
-        </div>
-        <div class="fixed-action-btn">
-          <a class="btn-floating btn-large red" href="gerenciarepublica.html">
-            <i class="large material-icons">done</i>
-          </a>
         </div>
       </div>
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
