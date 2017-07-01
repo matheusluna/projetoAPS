@@ -26,7 +26,7 @@
       
       if(empty($cidade)||empty($nome)||empty($rua)||empty($vagas)||empty($contato)||empty($gerente)||empty($bairro)){
         echo "<script>
-         sweetAlert('Dados vazios', 'Preencha os campos vazios!', 'error');
+         sweetAlert('Dados vazios ou incorretos', 'Preencha os campos vazios ou corrija os erros!', 'error');
               </script>";
 
       }else{
