@@ -5,12 +5,12 @@
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
-
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
 
     <body class="grey lighten-4">
+      <?php include("bloqueiaAcessoDiretoURL.php");?>
       <!--Import jQuery before materialize.js-->
       <ul id="slide-out" class="side-nav">
         <li><div class="userView">
@@ -18,10 +18,10 @@
             <img src="materialize/img/paisagem.jpg">
           </div>
           <a href="#!user"><img class="circle" src="materialize/img/pessoa.jpg"></a>
-          <a href="#!name"><span class="white-text name">John Doe</span></a>
-          <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+          <a href="#!name"><span class="white-text name"><?php $nome = $_SESSION['nome']; echo "$nome"; ?></span></a>
+          <a href="#!email"><span class="white-text email"><?php $email = $_SESSION['email']; echo "$email"; ?></span></a>
         </div></li>
-        <li><a href="republica.html">República</a></li>
+        <li><a href="republica.php">República</a></li>
         <li><a href="#!" class="subheader">Tarefas</a></li>
         <li><a href="#" class="subheader">Calendário</a></li>
         <li><div class="divider"></div></li>
@@ -37,16 +37,15 @@
         </nav>
       </div>
       <div class="container">
-        <br>
+        <br><br>
         <div class="row">
-          <div class="input-field col s11">
-            <input id="email" type="email" class="validate">
-            <label for="email">Cidade</label>
-
+          <div class="col s3 center-align">
+            <a class="btn-floating btn-large waves-effect waves-light red" href="criaRepublica.php"><i class="material-icons">add</i></a>
+            <p>Criar</p>
           </div>
-          <div class="col s1">
-            <br>  
-            <a class="waves-effect waves-light btn">Pesquisar</a>
+          <div class="col s3 center-align">
+            <a class="btn-floating btn-large waves-effect waves-light cyan darken-4" href="pesquisa.php"><i class="material-icons">search</i></a>
+            <p>Pesquisar</p>
           </div>
         </div>
       </div>

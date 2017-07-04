@@ -4,25 +4,13 @@
       <!--Import Google Icon Font-->
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
-	  <!--Import SweerAlert and CSS-->
-	  <script type="text/javascript" src='sweetalert/dist/sweetalert.min.js'></script>
-      <link rel='stylesheet' type='text/css' href='sweetalert/dist/sweetalert.css'>
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>  
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
 
     <body class="grey lighten-4">
-      <?php
-		session_start();		
-		if(empty($_SESSION['email']) and empty($_SESSION['senha'])){
-			echo "<script>
-		        sweetAlert('Você não logou', 'Por favor entre no sistema', 'error');
-		        setTimeout(function() { location.href='index.php' }, 3000); </script>";
-			session_unset();
-			exit;
-		}
-	  ?>
+      <?php include("bloqueiaAcessoDiretoURL.php");?>
       <!--Import jQuery before materialize.js-->
       <ul id="slide-out" class="side-nav">
         <li><div class="userView">
@@ -30,10 +18,10 @@
             <img src="materialize/img/paisagem.jpg">
           </div>
           <a href="#!user"><img class="circle" src="materialize/img/pessoa.jpg"></a>
-          <a href="#!name"><span class="white-text name">John Doe</span></a>
-          <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+          <a href="#!name"><span class="white-text name"><?php $nome = $_SESSION['nome']; echo "$nome"; ?></span></a>
+          <a href="#!email"><span class="white-text email"><?php $email = $_SESSION['email']; echo "$email"; ?></span></a>
         </div></li>
-        <li><a href="republica.html">República</a></li>
+        <li><a href="republica.php">República</a></li>
         <li><a href="#!" class="subheader">Tarefas</a></li>
         <li><a href="#" class="subheader">Calendário</a></li>
         <li><div class="divider"></div></li>
