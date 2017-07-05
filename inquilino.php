@@ -11,6 +11,7 @@
     </head>
 
     <body class="grey lighten-4">
+      <?php include("bloqueiaAcessoDiretoURL.php");?>
       <!--Import jQuery before materialize.js-->
       <ul id="slide-out" class="side-nav">
         <li><div class="userView">
@@ -18,8 +19,8 @@
             <img src="materialize/img/paisagem.jpg">
           </div>
           <a href="#!user"><img class="circle" src="materialize/img/pessoa.jpg"></a>
-          <a href="#!name"><span class="white-text name">John Doe</span></a>
-          <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+          <a href="#!name"><span class="white-text name"><?php $nome = $_SESSION['nome']; echo "$nome"; ?></span></a>
+          <a href="#!email"><span class="white-text email"><?php $email = $_SESSION['email']; echo "$email"; ?></span></a>
         </div></li>
         <li><a href="republica.html">República</a></li>
         <li><a href="#!" class="subheader">Tarefas</a></li>
