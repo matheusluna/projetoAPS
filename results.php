@@ -12,7 +12,7 @@
 
     <body class="grey lighten-4">
       <?php include("bloqueiaAcessoDiretoURL.php");
-
+        include("conexao.php");
         $conn = mysqli_connect('localhost', 'root','', 'republics');
       ?>
       <!--Import jQuery before materialize.js-->
@@ -41,19 +41,32 @@
         </nav>
       </div>
       <div class="container">
-        <br>
-        <form name = "pesquisa" method="post" action="results.php">
-          <div class="row">
-            <div class="input-field col s11">
-              <input id="cidade" type="text" name="buscar" class="validate">
-              <label for="email">Cidade</label>
-            </div>
-            <div class="col s1">
-              <br>  
-              <input type="submit" class="waves-effect waves-light btn"  value="Pesquisar">
-            </div>
-          </div>
-        </form>
+        <?php
+          $buscar = $_POST['buscar'];
+          $sql = mysqli_query($conn, "SELECT * FROM republica WHERE cidade LIKE '%".$buscar."%'");
+          $row =mysqli_num_rows($sql);
+          if($row > 0){
+            while ($linha = mysqli_fetch_array($sql)){
+              $nome = $linha['nome'];
+              $rua = $linha['rua'];
+              $bairro = $linha['bairro'];
+              $contato = $linha['contato'];
+
+              echo "<br>";
+              echo "<strong> Nome: </strong>".@$nome;
+              echo "<br>";
+              echo "<strong> Rua: </strong>".@$rua;
+              echo "<br>";
+              echo "<strong> Bairro: </strong>".@$bairro;
+              echo "<br>";
+              echo "<strong> Contato: </strong>".@$contato;
+              echo "<br>";
+            }
+          }else{
+            echo "<br>";
+            echo "<strong>Desculpe, sem republicas disponiveis nessa cidade</strong>";
+          }
+      ?>  
       </div>
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript">
