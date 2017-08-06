@@ -36,14 +36,48 @@
         </nav>
       </div>
       <div class="container">
-        
+        <!--Mural-->
+        <!--Modelo servirá para estrutura das mensagens-->
+        <ul class="collapsible popout" data-collapsible="accordion">
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+          </li>
+        </ul>
+
+        <!--pop up para escrever mensagem-->
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h4>Mensagem</h4>
+            <div class="input-field">
+              <textarea id="textarea1" class="materialize-textarea"></textarea>
+              <label for="textarea1">Escreva aqui</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a class="modal-action modal-close waves-effect waves-green btn-flat">Salvar</a>
+          </div>
+        </div>
+
+        <div class="fixed-action-btn horizontal click-to-toggle">
+         <a href="#modal1" class="btn-floating btn-large red">
+           <i class="material-icons">add</i>
+         </a>
+       </div>
       </div>
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript">
       $(document).ready(function(){
         $(".button-collapse").sideNav();
         $('.modal').modal();
-        $('#modal1').modal('open');
       });
       </script>
       <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
