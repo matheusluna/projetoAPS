@@ -13,6 +13,9 @@
     <body class="grey lighten-4">
       <?php include("bloqueiaAcessoDiretoURL.php");?>
       <!--Import jQuery before materialize.js-->
+
+
+
       <ul id="slide-out" class="side-nav">
         <li><div class="userView">
           <div class="background">
@@ -38,8 +41,28 @@
         </nav>
       </div>
       <div class="container">
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h4>Adicionar participante</h4>
+            <div class="input-field">
+              <input id="id" type="text" name="" value="">
+              <label for="id">nickname</label>
+              <button class="btn" type="button" name="button">Pesquisar</button>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Salvar</a>
+          </div>
+        </div>
+
         <br>
-        <h4>Nome da república</h4>
+        <div class="row">
+            <h4>Nome da república <a href="#modal1" class="btn-floating"><i
+              class="material-icons">add</i></a></h4>
+
+        </div>
+
         <div class="divider"></div>
         <table class="highlight">
           <thead>
@@ -55,34 +78,19 @@
               <td>matheusLuna</td>
               <td>matheusluna96@gmail.comm</td>
               <td>(87) 99609-5790</td>
+              <td><button class="btn-flat" type="button" name="button"><i
+                class="material-icons">delete</i></button></td>
             </tr>
-            <tr>
-              <td>Alan</td>
-              <td>Jellybean</td>
-              <td>$3.76</td>
-            </tr>
-            <tr>
-              <td>Jonathan</td>
-              <td>Lollipop</td>
-              <td>$7.00</td>
-            </tr>
+
           </tbody>
         </table>
-        <div class="fixed-action-btn">
-          <a class="btn-floating btn-large red">
-            <i class="large material-icons">menu</i>
-          </a>
-          <ul>
-            <li><a class="btn-floating yellow darken-1"><i class="material-icons">settings</i></a></li>
-            <li><a class="btn-floating green"><i class="material-icons">delete</i></a></li>
-            <li><a class="btn-floating blue"><i class="material-icons">add</i></a></li>
-          </ul>
-        </div>
+
       </div>
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript">
       $(document).ready(function(){
         $(".button-collapse").sideNav();
+        $('.modal').modal();
       });
       </script>
       <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
