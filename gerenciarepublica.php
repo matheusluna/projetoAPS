@@ -79,7 +79,8 @@
               <td>matheusluna96@gmail.comm</td>
               <td>(87) 99609-5790</td>
               <td><button class="btn-flat" type="button" name="button"><i
-                class="material-icons">delete</i></button></td>
+                class="material-icons">delete</i></button><button class="btn-flat" type="button" name="button"><i
+                  class="material-icons">edit</i></button></td>
             </tr>
 
           </tbody>
