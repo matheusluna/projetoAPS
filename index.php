@@ -77,7 +77,6 @@
   </html>
 
   <?php
-        session_start();
         include("crudMySql.php");
 
         if ($_POST) {

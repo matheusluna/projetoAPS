@@ -41,50 +41,30 @@
         </nav>
       </div>
       <div class="container">
-        <div id="modal1" class="modal">
-          <div class="modal-content">
-            <h4>Adicionar participante</h4>
-            <div class="input-field">
-              <input id="id" type="text" name="" value="">
-              <label for="id">nickname</label>
-              <button class="btn" type="button" name="button">Pesquisar</button>
-            </div>
 
+        <form class="" action="gerenciarepublica.php" method="post">
+          <div id="modal1" class="modal">
+            <div class="modal-content">
+              <h4>Adicionar participante</h4>
+              <div class="input-field">
+                <input id="id" type="text" name="membro" value="">
+                <label for="id">nickname</label>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <input class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" name="" value="Salvar">
+            </div>
           </div>
-          <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Salvar</a>
-          </div>
-        </div>
+        </form>
 
         <br>
         <div class="row">
-            <h4>Nome da república <a href="#modal1" class="btn-floating"><i
+            <h4><?php include("crudMySql.php"); $email = $_SESSION['email']; $result = read_database('usuario', "WHERE email = '$email'");
+			$nomeRepublica = $result[0]['nomerepublica']; echo"$nomeRepublica";?> <a href="#modal1" class="btn-floating"><i
               class="material-icons">add</i></a></h4>
 
         </div>
-
-        <div class="divider"></div>
-        <table class="highlight">
-          <thead>
-            <tr>
-                <th>Id</th>
-                <th>E-mail</th>
-                <th>Telefone</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>matheusLuna</td>
-              <td>matheusluna96@gmail.comm</td>
-              <td>(87) 99609-5790</td>
-              <td><button class="btn-flat" type="button" name="button"><i
-                class="material-icons">delete</i></button><button class="btn-flat" type="button" name="button"><i
-                  class="material-icons">edit</i></button></td>
-            </tr>
-
-          </tbody>
-        </table>
 
       </div>
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -97,3 +77,77 @@
       <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     </body>
   </html>
+
+  <?php
+   	$conexao = open_database();
+  	if ($conexao != null) {
+  		if($_POST){
+  	      $membro = $_POST['membro'];
+
+  				  	$sqlConsultaUser = "SELECT * FROM usuario WHERE username = '$membro'";
+
+  				  	$result = mysqli_query($conexao, $sqlConsultaUser);
+  				  	if(mysqli_num_rows($result) == 1){
+  				  		$row = mysqli_fetch_assoc($result);
+
+  						$sqlAtualizaUser = "UPDATE usuario ".
+  										   "SET tipo='inquilino', nomerepublica='$nomeRepublica' ".
+  										   "WHERE username = '$membro'";
+
+  	        			mysqli_autocommit($conexao, FALSE);
+
+  						if(mysqli_query($conexao, $sqlAtualizaUser)){
+
+  	            			mysqli_commit($conexao);
+
+  							$userAtualizado = TRUE;
+  						}else{$userAtualizado = FALSE;}
+  			 }
+
+  	    mysqli_close($conexao);
+
+    }
+}
+  ?>
+
+  <?php
+
+        echo "<center><div class='container'>";
+        echo "
+            <div class='divider'></div>
+            <table class='highlight'>
+            <thead>
+            <tr>
+            <th>Id</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            </tr>
+            </thead>
+            <tbody>";
+
+  					$result = read_database('usuario', "WHERE nomerepublica = '$nomeRepublica' and email <> '$email'");
+
+  					for ($i = 0; $i < sizeof($result); $i++) {
+
+                echo "<tr>";
+  							$id = $result[$i]['username'];
+  							$Email = $result[$i]['email'];
+  							$telefone = $result[$i]['telefone'];
+
+  							if($result){
+
+                echo "<td>$id</td>";
+                echo "<td>$Email</td>";
+                echo "<td>$telefone</td>";
+          			echo "<td><a class='btn-flat' href='removerinquilino.php?nomerepublica=$nomeRepublica&usuario=$Email'><i
+                class='material-icons'>delete</i></a></td>";
+          			echo "</tr>";
+          		}
+
+  			}
+
+        echo "</tbody>
+        </table>";
+        echo "</div></center";
+
+?>
