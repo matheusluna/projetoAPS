@@ -22,11 +22,11 @@
           <a href="#!name"><span class="white-text name"><?php $nome = $_SESSION['nome']; echo "$nome"; ?></span></a>
           <a href="#!email"><span class="white-text email"><?php $email = $_SESSION['email']; echo "$email"; ?></span></a>
         </div></li>
-        <li><a href="republica.html">República</a></li>
+        <li><a href="republica.php">República</a></li>
         <li><a href="#!" class="subheader">Tarefas</a></li>
         <li><a href="#" class="subheader">Calendário</a></li>
         <li><div class="divider"></div></li>
-        <li><a class="waves-effect" href="index.html"><i class="material-icons">power_settings_new</i>Logout</a></li>
+        <li><a class="waves-effect" href="index.php"><i class="material-icons">power_settings_new</i>Logout</a></li>
       </ul>
       <div class="navbar-fixed">
 

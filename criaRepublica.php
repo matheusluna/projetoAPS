@@ -139,7 +139,7 @@
         <li><a href="#!" class="subheader">Tarefas</a></li>
         <li><a href="#" class="subheader">Calendário</a></li>
         <li><div class="divider"></div></li>
-        <li><a class="waves-effect" href="index.html"><i class="material-icons">power_settings_new</i>Logout</a></li>
+        <li><a class="waves-effect" href="index.php"><i class="material-icons">power_settings_new</i>Logout</a></li>
       </ul>
       <div class="navbar-fixed">
 

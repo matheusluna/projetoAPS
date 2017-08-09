@@ -3,9 +3,10 @@
   	//Importa arquivo
   	include("conexao.php");
   	
-	//Grava Reqistros
-    //Mesma coisa que um insert
+	//Função grava reqistros 
     function create_database($table, array $data){
+        	
+        //Abre a conexao com o banco	
         $conexao = open_database();
 		
 		//Adiciona virgula nas chaves
@@ -14,15 +15,27 @@
 		//Adiciona virgula nos valores
         $values = "'".implode("', '", $data)."'";
         
+		//Recebe a sring sql de inserção para execução
         $sql = "INSERT INTO {$table} ({$fields}) VALUES ({$values})";
         
+		//Executa o comando sql da variável $sql
         if($conexao->query($sql)){
+        	
+			//Fecha a conexão após a execução do sql
         	mysqli_close($conexao);
+			
+			//Retorna true caso executado com sucesso o sql
 			return TRUE;	
+			
         }else{
+        	
+			//Fecha a conexão caso executado com insucesso o sql
         	mysqli_close($conexao);
+			
+			//Retorna false em caso de insucesso do sql
 			return FALSE;
         }
+		
     }
 	
 	//Ler Registros
@@ -32,19 +45,23 @@
 		//Formata condição caso exista ou não exista
         $condition = ($condition) ? " {$condition}" : null;    
 		
-        $sql = "SELECT {$fields} FROM {$table}{$condition}";
+		$dataGeral = array();
+		$i = 0;
+		
+        $sql = "SELECT DISTINCT {$fields} FROM {$table}{$condition}";
         $result = $conexao->query($sql);
 		
         if ($result->num_rows > 0) {
       	// output data of each row
       		while($row = $result->fetch_assoc()) {
           		$data = $row;
+				$dataGeral[$i++] = $data;
       		}
   		} else {
       		return FALSE;
   		}
 		mysqli_close($conexao);
-		return $data;
+		return $dataGeral;
     }
 	
 	//Altera Registros

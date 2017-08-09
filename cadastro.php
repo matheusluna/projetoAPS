@@ -17,8 +17,8 @@
         <div class="navbar-fixed">
           <nav>
             <div class="nav-wrapper grey darken-3">
-              <a href="index.html" class="button-collapse show-on-large"><i class="material-icons">replay</i></a>
-              <a href="index.html" class="brand-logo">Cadastro</a>
+              <a href="index.php" class="button-collapse show-on-large"><i class="material-icons">replay</i></a>
+              <a href="index.php" class="brand-logo">Cadastro</a>
             </div>
           </nav>
         </div>
