@@ -20,6 +20,8 @@
 				
 				$result = read_database('usuario', "WHERE email = '$email'"); 
 				
+				$_SESSION['tipo'] = $result[0]['tipo'];
+				
 				$_SESSION['foto'] = $result[0]['foto'];
 				
 				if($result[0]['senha'] <> $senha){	
@@ -35,7 +37,7 @@
 						echo "<script>
 	        			sweetAlert('Login efetuado', 'Bem vindo, $nome', 'success');
 	        			setTimeout(function() { location.href='gerente.php' }, 3000); </script>";
-					}else if($result[0]['tipo'] == 'morador'){
+					}else if($result[0]['tipo'] == 'inquilino'){
 						echo "<script>
 	        			sweetAlert('Login efetuado', 'Bem vindo, $nome', 'success');
 	        			setTimeout(function() { location.href='inquilino.php' }, 3000); </script>";

@@ -47,6 +47,10 @@
       $(document).ready(function(){
         $(".button-collapse").sideNav();
       });
+       $(document).ready(function(){
+        $(".button-collapse").sideNav();
+		  $('.modal').modal();
+      });
 		
       </script>
       <script type="text/javascript" src="materialize/js/materialize.min.js"></script>

@@ -23,6 +23,8 @@
           <a href="#!name"><span class="white-text name"><?php $nome = $_SESSION['nome']; echo "$nome"; ?></span></a>
           <a href="#!email"><span class="white-text email"><?php $email = $_SESSION['email']; echo "$email"; ?></span></a>
         </div></li>
+        <li><a href="gerente.php">Página Inicial</a></li>
+        <li><a href="gerenciarepublica.php">Gerenciar República</a></li>
         <li><a href="republica.php">República</a></li>
         <li><a href="#!" class="subheader">Tarefas</a></li>
         <li><a href="#" class="subheader">Calendário</a></li>
