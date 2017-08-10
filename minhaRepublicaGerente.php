@@ -91,7 +91,7 @@
         <div class="modal-content">
           <h4>Editar</h4>
           <div class="input-field">
-            <input id="nome" type="text" name="nome" value="<?php echo $nome; ?>">
+            <input id="nome" type="text" name="nome" value="<?php echo $nome; ?>" readonly="true">
             <label for="nome">Nome</label>
           </div>
           <div class="input-field">

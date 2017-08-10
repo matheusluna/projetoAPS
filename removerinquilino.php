@@ -26,7 +26,7 @@
               $row = mysqli_fetch_assoc($result);
 
             $sqlAtualizaUser = "UPDATE usuario ".
-                       "SET tipo='null', nomerepublica='null' ".
+                       "SET tipo='null'".
                        "WHERE email = '$email'";
 
                 mysqli_autocommit($conexao, FALSE);

@@ -126,7 +126,7 @@
             </thead>
             <tbody>";
 
-  					$result = read_database('usuario', "WHERE nomerepublica = '$nomeRepublica' and email <> '$email'");
+  					$result = read_database('usuario', "WHERE tipo = 'inquilino' and email <> '$email'");
 
   					for ($i = 0; $i < sizeof($result); $i++) {
 

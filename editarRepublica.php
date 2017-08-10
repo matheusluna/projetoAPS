@@ -32,7 +32,7 @@
               $row = mysqli_fetch_assoc($result);
 
             $sqlAtualizaUser = "UPDATE republica ".
-                       "SET nome='$nome', cidade='$cidade', rua='$rua', bairro='$bairro', numerovagas='$vagas', contato='$contato' ".
+                       "SET cidade='$cidade', rua='$rua', bairro='$bairro', numerovagas='$vagas', contato='$contato' ".
                        "WHERE gerente = '$gerente'";
                 mysqli_autocommit($conexao, FALSE);
 

@@ -28,12 +28,20 @@
                    "SET tipo='null'".
                    "WHERE email = '$email'";
 
-        mysqli_query($conexao, $sqlAtualizaUser);
-
 				echo "<script>
 					  		swal('República Deletada!', 'Sua República foi Deletada!', 'success');
 							setTimeout(function() { location.href='minhaRepublicaGerente.php' }, 3000);
 					  </script>";
+
+			}
+
+      if(mysqli_query($conexao, $sqlDelete)){
+
+        $sqlAtualizaUser2 = "UPDATE usuario ".
+                 "SET tipo='null'".
+                 "WHERE tipo ='inquilino'";
+
+       mysqli_query($conexao, $sqlAtualizaUser2);
 
 			}
 			else echo "<script>

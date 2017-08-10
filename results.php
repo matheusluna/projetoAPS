@@ -53,6 +53,7 @@
               $contato = $linha['contato'];
 
               echo "<br>";
+              echo "<h5>";
               echo "<strong> Nome: </strong>".@$nome;
               echo "<br>";
               echo "<strong> Rua: </strong>".@$rua;
@@ -60,13 +61,14 @@
               echo "<strong> Bairro: </strong>".@$bairro;
               echo "<br>";
               echo "<strong> Contato: </strong>".@$contato;
+              echo "</h5>";
               echo "<br>";
             }
           }else{
             echo "<br>";
             echo "<strong>Desculpe, sem republicas disponiveis nessa cidade</strong>";
           }
-      ?>  
+      ?>
       </div>
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript">
