@@ -38,6 +38,8 @@
 							echo "</li>";
 						}	
 						echo "</ul>";
+					}else{
+						echo "<h5>Nenhum aviso na sua república</h5>";
 					}
 					
 				
@@ -60,4 +62,6 @@
 				<br><br>
 			</div>
 		</div>
+
+
 
