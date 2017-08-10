@@ -60,9 +60,10 @@
 
         <br>
         <div class="row">
-            <h4><?php include("crudMySql.php"); $email = $_SESSION['email']; $result = read_database('usuario', "WHERE email = '$email'");
+            <h4><?php include("crudMySql.php"); $result = read_database('usuario', "WHERE email = '$email'");
 			$nomeRepublica = $result[0]['nomerepublica']; echo"$nomeRepublica";?> <a href="#modal1" class="btn-floating"><i
-              class="material-icons">add</i></a></h4>
+              class="material-icons">add</i></a>
+              <a href="minhaRepublicaGerente.php" class="btn-floating"><i class="material-icons">edit</i></a></h4>
 
         </div>
 

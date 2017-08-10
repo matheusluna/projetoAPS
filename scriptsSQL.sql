@@ -6,8 +6,10 @@ CREATE TABLE republica(
 	numerovagas INTEGER NOT NULL,
 	contato VARCHAR(20) NOT NULL,
 	gerente VARCHAR(100) NOT NULL,
-	PRIMARY KEY(nome)
-);
+	CONSTRAINT PKR PRIMARY KEY(nome)
+
+)ENGINE = InnoDB;
+
 
 CREATE TABLE usuario(
 	nome VARCHAR(100) NOT NULL,
@@ -21,47 +23,86 @@ CREATE TABLE usuario(
 	telefone VARCHAR(20) NOT NULL,
 	tipo VARCHAR(20),
 	nomerepublica VARCHAR(100),
-	FOREIGN KEY(nomerepublica) REFERENCES republica(nome),
-	PRIMARY KEY(email)
-);
+	CONSTRAINT PKU PRIMARY KEY(email),
+	CONSTRAINT FKU FOREIGN KEY(nomerepublica) 
+		REFERENCES republica(nome)
+			ON UPDATE CASCADE 
+			ON DELETE CASCADE
 
-ALTER TABLE republica ADD CONSTRAINT fk_gerente FOREIGN KEY (gerente) REFERENCES usuario(email);
+)ENGINE = InnoDB;
+
+
+ALTER TABLE republica 
+	ADD CONSTRAINT FK1R FOREIGN KEY(gerente) 
+		REFERENCES usuario(email) 
+			ON UPDATE CASCADE 
+			ON DELETE CASCADE;
+
 
 CREATE TABLE aviso(
 	id SERIAL,
 	titulo VARCHAR(100) NOT NULL,
 	texto VARCHAR(100) NOT NULL,
 	autor VARCHAR(100),
+	data DATE,
 	nomerepublica VARCHAR(100) NOT NULL,
-	FOREIGN KEY(autor) REFERENCES usuario(email),
-	FOREIGN KEY(nomerepublica) REFERENCES republica(nome),
-	PRIMARY KEY(id)
-);
+	CONSTRAINT PKA PRIMARY KEY(id),
+	CONSTRAINT FK1A FOREIGN KEY(autor) 
+		REFERENCES usuario(email) 
+			ON UPDATE CASCADE 
+			ON DELETE CASCADE,
+	CONSTRAINT FK2A FOREIGN KEY(nomerepublica) 
+		REFERENCES republica(nome) 
+			ON UPDATE CASCADE 
+			ON DELETE CASCADE
+
+)ENGINE = InnoDB;
+
+
 CREATE TABLE produto(
 	id SERIAL,
 	nome VARCHAR(100) NOT NULL,
 	descricao VARCHAR(100) NOT NULL,
 	quantidade INTEGER NOT NULL,
 	nomerepublica VARCHAR(100) NOT NULL,
-	FOREIGN KEY(nomerepublica) REFERENCES republica(nome),
-	PRIMARY KEY(id)
-);
+	CONSTRAINT PKP PRIMARY KEY(id),
+	CONSTRAINT FKP FOREIGN KEY(nomerepublica) 
+		REFERENCES republica(nome) 
+			ON UPDATE CASCADE 
+			ON DELETE CASCADE
+
+)ENGINE = InnoDB;
+
+
 CREATE TABLE despesa(
 	id SERIAL,
 	titulo VARCHAR(100) NOT NULL,
 	valor REAL NOT NULL,
 	dataVencimento VARCHAR(15) NOT NULL,
 	nomerepublica VARCHAR(100) NOT NULL,
-	FOREIGN KEY(nomerepublica) REFERENCES republica(nome),
-	PRIMARY KEY(id)
-);
+	CONSTRAINT PKD PRIMARY KEY(id),
+	CONSTRAINT FKD FOREIGN KEY(nomerepublica) 
+		REFERENCES republica(nome)
+			ON UPDATE CASCADE 
+			ON DELETE CASCADE
+	
+)ENGINE = InnoDB;
+
+
 CREATE TABLE tarefa(
 	id SERIAL,
 	dia VARCHAR(15) NOT NULL,
 	descricao VARCHAR(100) NOT NULL,
 	responsavel VARCHAR(100) NOT NULL,
 	nomerepublica VARCHAR(100) NOT NULL,
-	FOREIGN KEY(responsavel) REFERENCES usuario(email),
-	FOREIGN KEY(nomerepublica) REFERENCES republica(nome),
-	PRIMARY KEY(id)
-);
+	CONSTRAINT PKT PRIMARY KEY(id),
+	CONSTRAINT FK1T FOREIGN KEY(responsavel) 
+		REFERENCES usuario(email)
+			ON UPDATE CASCADE 
+			ON DELETE CASCADE,
+	CONSTRAINT FK2T FOREIGN KEY(nomerepublica) 
+		REFERENCES republica(nome)
+			ON UPDATE CASCADE 
+			ON DELETE CASCADE
+
+)ENGINE = InnoDB;
