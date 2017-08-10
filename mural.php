@@ -17,7 +17,7 @@
 	<div class="container">
 
 		<center>
-			<h3>Mural de avisos</h3>
+			<h4>Mural de avisos</h4>
 		</center>
 		
 		<!-- ABRE JANELA DE CRIAÇÃO -->
@@ -77,7 +77,6 @@
 	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-
 			$('.modal').modal();
 		});
 

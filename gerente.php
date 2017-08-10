@@ -44,6 +44,9 @@
           <a class="btn-floating btn-large waves-effect waves-light red" href="gerenciarepublica.php"><i class="material-icons">menu</i></a>
           <p>Minha República</p>
         </div>
+		  
+		 <?php include("mural.php");?> 
+		
       </div>
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript">
