@@ -30,7 +30,7 @@
 
 				echo "<script>
 					  		swal('República Deletada!', 'Sua República foi Deletada!', 'success');
-							setTimeout(function() { location.href='minhaRepublicaGerente.php' }, 3000);
+							setTimeout(function() { location.href='gerente.php' }, 3000);
 					  </script>";
 
 			}
