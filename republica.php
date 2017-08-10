@@ -18,6 +18,7 @@
             <img src="materialize/img/paisagem.jpg">
           </div>
           <a href="#!user"><img class="circle" src="materialize/img/pessoa.jpg"></a>
+          <a href="atualizarUsuario.php"><span class="white-text name">Editar Perfil</span></a>
           <a href="#!name"><span class="white-text name"><?php $nome = $_SESSION['nome']; echo "$nome"; ?></span></a>
           <a href="#!email"><span class="white-text email"><?php $email = $_SESSION['email']; echo "$email"; ?></span></a>
         </div></li>
@@ -28,11 +29,10 @@
         <li><a class="waves-effect" href="index.php"><i class="material-icons">power_settings_new</i>Logout</a></li>
       </ul>
       <div class="navbar-fixed">
-
         <nav>
           <div class="nav-wrapper grey darken-3">
             <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
-            <a href="#!" class="brand-logo">RepublicS</a>
+            <a href="principal.php" class="brand-logo">RepublicS</a>
           </div>
         </nav>
       </div>
