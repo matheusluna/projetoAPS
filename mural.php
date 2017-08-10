@@ -28,28 +28,37 @@
 		<!-- LISTA TODOS OS AVISOS -->
 		<ul class="collapsible" data-collapsible="accordion">
 			<li>
-				<div class="collapsible-header">Título 1
-					<span class="badge">
-						<a class="material-icons" href="atualizarAviso.php?id=124">create</a>
-						<a class="material-icons" href="excluirAviso.php?id=124">delete_forever</a>
-					</span>
-				</div>
-				<div class="collapsible-body">
-					<p>Conteudo 1 aqui</p>
-				</div>
+				<?php
+				
+					include("crudMySql.php"); 
+					
+					$email = $_SESSION['email'];
+					
+					$result = read_database('usuario', "WHERE email = '$email'");  
+					
+					$nomeRepublica = $result[0]['nomerepublica'];
+					
+					$resultAvisos = read_database('aviso', "WHERE nomerepublica = '$nomeRepublica' 
+												   and DATE(data) <= DATE_ADD(CURDATE(), INTERVAL 30 DAY)");  
+					
+					for ($i = 0; $i < sizeof($resultAvisos); $i++) {
+						
+						echo '<div class="collapsible-header">'.$resultAvisos[$i]['titulo'].
+						  		'<span class="badge">'.
+									'<a class="material-icons" href="atualizarAviso.php?id=124">create</a>'.
+									'<a class="material-icons" href="excluirAviso.php?id=124">delete_forever</a>'.
+								'</span>'.
+						  '</div>'.
+						  '<div class="collapsible-body">'.
+						  		'<p>'.$resultAvisos[$i]['texto'].'</p>'.
+						  '</div>';
+						
+					}
+				
+				?>
 			</li>
 			
-			<li>
-				<div class="collapsible-header">Título 2
-					<span class="badge">
-						<a class="material-icons" href="atualizarAviso.php?id=125">create</a>
-						<a class="material-icons" href="excluirAviso.php?id=125">delete_forever</a>
-					</span>
-				</div>
-				<div class="collapsible-body">
-					<p>Conteudo 2 aqui</p>
-				</div>
-			</li>
+			
 		</ul>
 
 		<!-- CONTEÚDO DA JANELA DE CRIAÇÃO -->
