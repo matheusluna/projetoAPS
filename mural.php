@@ -18,23 +18,34 @@
 
 		<center>
 			<h3>Mural de avisos</h3>
-			<!-- ABRE JANELA DE CRIAÇÃO -->
-
 		</center>
-		<a class="modal-trigger btn-floating btn-small waves-effect waves-light red" href="#janelaAviso"><i class="material-icons">add</i></a>
+		
+		<!-- ABRE JANELA DE CRIAÇÃO -->
+		<a class="modal-trigger btn-floating btn-small waves-effect waves-light green" href="#janelaAviso"><i class="material-icons">add</i></a>
 		<label class="" style="font-size:15pt">Criar novo</label><br><br>
 
 
 		<!-- LISTA TODOS OS AVISOS -->
 		<ul class="collapsible" data-collapsible="accordion">
 			<li>
-				<div class="collapsible-header">Título 1<span class="badge"><a class="small material-icons" href="excluirAviso.php?id=124">cancel</a></span></div>
+				<div class="collapsible-header">Título 1
+					<span class="badge">
+						<a class="material-icons" href="atualizarAviso.php?id=124">create</a>
+						<a class="material-icons" href="excluirAviso.php?id=124">delete_forever</a>
+					</span>
+				</div>
 				<div class="collapsible-body">
 					<p>Conteudo 1 aqui</p>
 				</div>
 			</li>
+			
 			<li>
-				<div class="collapsible-header">Título 2<span class="badge"><a class="small material-icons" href="excluirAviso.php?id=125">cancel</a></span></div>
+				<div class="collapsible-header">Título 2
+					<span class="badge">
+						<a class="material-icons" href="atualizarAviso.php?id=125">create</a>
+						<a class="material-icons" href="excluirAviso.php?id=125">delete_forever</a>
+					</span>
+				</div>
 				<div class="collapsible-body">
 					<p>Conteudo 2 aqui</p>
 				</div>
@@ -50,7 +61,7 @@
 					<input placeholder="Digite o título aqui" id="tituloAviso" name="tituloAviso" type="text" class="validate">
 					<label for="descricaoAviso">Descrição</label>
 					<textarea id="descricaoAviso" name="descricaoAviso" class="materialize-textarea"></textarea>
-					<button class="btn waves-effect waves-light right" type="submit">Enviar
+					<button class="btn waves-effect waves-light right green" type="submit">Enviar
     					<i class="material-icons right">send</i>
   					</button>
 				</form>
