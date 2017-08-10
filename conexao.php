@@ -1,3 +1,5 @@
+
+
 <?php
   function open_database() {
       try {
