@@ -10,16 +10,13 @@
 		
 				<?php
 				
-					include("crudMySql.php"); 
-					
 					$email = $_SESSION['email'];
 					
 					$result = read_database('usuario', "WHERE email = '$email'");  
 					
 					$nomeRepublica = $result[0]['nomerepublica'];
 					
-					$resultAvisos = read_database('aviso', "WHERE nomerepublica = '$nomeRepublica' 
-												    AND DATE(data) <= DATE_ADD(CURDATE(), INTERVAL 30 DAY)");  
+					$resultAvisos = read_database('aviso', "WHERE nomerepublica = '$nomeRepublica' 												    AND data BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 1 MONTH)");  
 					
 					if($resultAvisos != FALSE){
 						echo "<ul class='collapsible popout' data-collapsible='accordion'>";

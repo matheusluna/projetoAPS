@@ -23,30 +23,19 @@
 			
 	
 	if(update_database('aviso', $sqlEditaAviso, "id=$id")){
-		if($_SESSION['tipo'] == 'gerente'){
-			
-			echo "<script> location.href='gerente.php'; </script>";
-			
-		}else{
-			echo "<script> location.href='inquilino.php'; </script>";
-		}
+		
+		echo "<script>
+		        setTimeout(function() { location.href='inquilino.php';  }, 500);
+            </script>";
 		
 	}else{
-		if($_SESSION['tipo'] == 'gerente'){
-			
-			echo "<script>
-		        sweetAlert('Falha na atualização', 'Não foi possível atualizar aviso', 'error');
-		        setTimeout(function() { location.href='gerente.php';  }, 1000);
-            </script>";
-			
-		}else{
-			
-			echo "<script>
-		        sweetAlert('Falha na atualização', 'Não foi possível atualizar aviso', 'error');
-		        setTimeout(function() { location.href='inquilino.php';  }, 1000);
-            </script>";
-			
-		}
 		
+			
+			echo "<script>
+		        sweetAlert('Falha', 'O aviso não pôde ser atualizado', 'error');
+		        setTimeout(function() { location.href='gerente.php';  }, 1500);
+            </script>";
+			
 	}
+	
 ?>

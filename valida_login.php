@@ -33,19 +33,12 @@
 					
 				}else{
 					$_SESSION['nome'] = $nome = $result[0]['nome'];
-					if($result[0]['tipo'] == 'gerente'){
-						echo "<script>
+					
+					echo "<script>
 	        			sweetAlert('Login efetuado', 'Bem vindo, $nome', 'success');
-	        			setTimeout(function() { location.href='gerente.php' }, 3000); </script>";
-					}else if($result[0]['tipo'] == 'inquilino'){
-						echo "<script>
-	        			sweetAlert('Login efetuado', 'Bem vindo, $nome', 'success');
-	        			setTimeout(function() { location.href='inquilino.php' }, 3000); </script>";
-					}else{
-						echo "<script>
-	        			sweetAlert('Login efetuado', 'Bem vindo, $nome', 'success');
-	        			setTimeout(function() { location.href='principal.php' }, 3000); </script>";
-					}
+	        			setTimeout(function() { location.href='paginainicial.php' }, 1000); </script>";
+					
+					
 				}
 			}else{
 				echo "<script>

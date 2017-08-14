@@ -22,12 +22,12 @@ if($conexao != null){
 	  if(mysqli_query($conexao, $sql)){
 	  	echo "<script>
         sweetAlert('Sucesso na remoção', 'Aviso removido com sucesso', 'success');
-        setTimeout(function() { history.back() }, 1000);
+        setTimeout(function() { location.href='paginainicial.php'; }, 1000);
             </script>";
 	  }else{
 		  echo "<script>
         sweetAlert('Falha na remoção', 'Falha ao remover aviso', 'error');
-        setTimeout(function() { history.back() }, 1000);
+        setTimeout(function() { location.href='paginainicial.php'; }, 1000);
             </script>";
 	  }
 	mysqli_close($conexao);

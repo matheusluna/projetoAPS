@@ -32,7 +32,7 @@
 		//Emite mensagem de cadastro de sucesso e redireciona a página
 		echo "<script>
 					sweetAlert('Aviso Cadastrado', 'Cadastro feito com sucesso', 'success');
-					setTimeout(function() { history.back() }, 1500);
+					setTimeout(function() { location.href='paginainicial.php'; }, 1500);
 			  </script>";
 
 	} 
@@ -42,7 +42,7 @@
 		//Emite mensagem de falha de cadastro do usuário
 		echo "<script>
 					sweetAlert('Falha no Cadastro', 'Houve falha ao cadastrar o aviso', 'error');
-					setTimeout(function() { history.back() }, 1500);
+					setTimeout(function() { location.href='paginainicial.php'; }, 1500);
 			  </script>";
 	}
 	

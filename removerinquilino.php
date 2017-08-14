@@ -15,40 +15,26 @@
   $conexao = open_database();
 
   if ($conexao != null) {
+        $inquilino = $_GET['inquilino'];
+	  	$sql = "UPDATE usuario SET tipo=NULL, nomerepublica=NULL WHERE email='$inquilino'";
+        $result = mysqli_query($conexao, $sql);
+		if($result != FALSE){
 
-        $inquilino = $_GET['nomerepublica'];
-        $email = $_GET['usuario'];
+			echo    "<script>
+						sweetAlert('Sucesso', 'O inquilino foi removido com sucesso', 'success');
+						setTimeout(function() { location.href='gerenciarepublica.php' }, 2000);
+					</script>";
+		}else{
 
-            $sqlConsultaUser = "SELECT * FROM usuario WHERE email = '$email'";
+		  	echo    "<script>
+					 sweetAlert('Falha', 'O inquilino não foi removido com sucesso', 'error');
+					 setTimeout(function() { location.href='gerenciarepublica.php' }, 2000);
+				 </script>";
 
-            $result = mysqli_query($conexao, $sqlConsultaUser);
-            if(mysqli_num_rows($result) == 1){
-              $row = mysqli_fetch_assoc($result);
+        }
+	  
+	  mysqli_close($conexao);
+   }
+      
 
-            $sqlAtualizaUser = "UPDATE usuario ".
-                       "SET tipo='null'".
-                       "WHERE email = '$email'";
-
-                mysqli_autocommit($conexao, FALSE);
-
-            if(mysqli_query($conexao, $sqlAtualizaUser)){
-
-                    mysqli_commit($conexao);
-
-            $userAtualizado = TRUE;
-            echo    "<script>
-                        sweetAlert('Sucesso', 'O inquilino foi removido com sucesso', 'success');
-                        setTimeout(function() { location.href='gerenciarepublica.php' }, 3000);
-                    </script>";
-            }else{$userAtualizado = FALSE;
-
-              echo    "<script>
-                         sweetAlert('Falha', 'O inquilino não foi removido com sucesso', 'error');
-                         setTimeout(function() { location.href='gerenciarepublica.php' }, 3000);
-                     </script>";
-
-            }
-     }
-      mysqli_close($conexao);
-}
 ?>
